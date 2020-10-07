@@ -33,6 +33,11 @@ export default function AddUser (props){
           
       }
     return(
+      <div>
+         <h2>
+                    
+                  <Link to='/'>Encouragement Bank</Link>
+      </h2>
       <form onSubmit={handleAdd}>
       <label htmlFor='username'>Username:</label>
       <input type='text' id='username' name='username' required></input>
@@ -40,5 +45,7 @@ export default function AddUser (props){
       <input type='email' id='email' name='email' required></input>
       <button type='submit'>Sign up</button>
       </form>
+      </div>
+     
     )
 }
