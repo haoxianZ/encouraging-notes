@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import context from './context';
-import config from './config';
-import GetNote from './getNote';
-import Note from './userNote';
+import context from '../context';
+import config from '../config';
+import GetNote from '../getNote';
+import Note from '../userNote/userNote';
 import { Link } from 'react-router-dom';
 export default class UserPage extends Component{
     static defaultProps = {
@@ -16,9 +16,12 @@ export default class UserPage extends Component{
       }
     handleSubmit = e => {
         e.preventDefault()
+        const { users=[] } = this.context
+        const  user_id  = this.props.match.params.user_id
+        const user = users.find(user=>user.id === user_id)
         const newNote = {
           content: e.target['newNote'].value,
-          user_id: this.props.match.params.user_id
+          user_id: user.serialid
         }
         console.log(newNote.user_id)
         fetch(`${config.API_ENDPOINT}/notes`, {
@@ -35,7 +38,7 @@ export default class UserPage extends Component{
           })
           .then(note => {
             this.context.addNote(note)
-            this.props.history.push(`/users/${note.user_id}`)
+            this.props.history.push(`/users/${user_id}`)
             })
           .catch(error => {
             console.error({ error })
@@ -49,9 +52,12 @@ export default class UserPage extends Component{
         console.log(this.context.show)
       }
     render(){
-        const { notes=[] } = this.context
+        const { notes=[], users=[] } = this.context
+        console.log(notes, users)
         const  user_id  = this.props.match.params.user_id
-        const userNotes = notes.filter(note=>note.user_id === user_id)
+        const user = users.find(user=>user.id === user_id)
+        console.log(user)
+        const userNotes = notes.filter(note=>note.user_id === user.serialid)
         console.log(userNotes)
         const renderContent = userNotes.map((note,i)=><Note key={i} content={note.content}
         id={note.id} user_id={note.user_id} onDeleteNote={this.handleDeleteNote}/> )

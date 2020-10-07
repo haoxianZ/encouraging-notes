@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Route, Link, Switch } from 'react-router-dom';
-import HomePage from './homePage';
-import UserPage from './userPage';
+import HomePage from './homePage/homePage';
+import UserPage from './userPage/userPage';
 import Context from './context';
 import config from './config';
-import EditNote from './editNote';
+import EditNote from './editNote/editNote';
 import update from 'react-addons-update';
-import AddUser from './addUser';
+import AddUser from './addUser/addUser';
 class App extends Component{
   state = {
     notes:[],

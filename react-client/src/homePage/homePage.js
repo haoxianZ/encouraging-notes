@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-import config from './config';
-import context from './context';
+import config from '../config';
+import context from '../context';
+import './homePage.css';
 export default class HomePage extends Component{
   static contextType = context
 
@@ -33,20 +34,27 @@ export default class HomePage extends Component{
     render(){
         return(
             <div className='mainPage'>
-                <h2>
+                <header>
                     Encouragement Bank
-                </h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='username'>
-                        username
+                </header>
+                <main>
+                  <form onSubmit={this.handleSubmit} className='login'>
+                    <div className='userbox'>
+                      <label htmlFor='username'>
+                        username:
                     </label>
                     <input type='test' id='username' name='username' required>
                     </input>
-                    <label htmlFor='email'>
-                        Email
+                    </div>
+                    
+                    <div className='userbox'>
+                        <label htmlFor='email'>
+                        Email:
                     </label>
                     <input type='email' id='email' name='email' required></input>
-                    <button type='submit'>
+                    </div>
+                    <div className='buttons'>
+                      <button type='submit'>
                         Log in
                     </button>
                     <Link to='/add-user'>
@@ -54,10 +62,16 @@ export default class HomePage extends Component{
                             Sign up
                         </button>
                     </Link>
+                    </div>
+                    
                     
                 </form>
-                { this.context.error &&
+                </main>
+                <footer>
+                  { this.context.error &&
              <h3 className="error"> { this.context.error } </h3> }
+                </footer>
+                
             </div>
         )
     }

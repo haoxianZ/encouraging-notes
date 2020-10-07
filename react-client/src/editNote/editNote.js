@@ -1,6 +1,6 @@
 import React, { Component, useContext } from 'react'
-import context from './context';
-import config from './config';
+import context from '../context';
+import config from '../config';
 
 export default function EditNote(props){
     const values = useContext(context);

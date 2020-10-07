@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import context from './context'
-import config from './config'
+import context from '../context'
+import config from '../config'
 
 
 export default class Note extends React.Component {
