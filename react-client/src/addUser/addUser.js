@@ -10,7 +10,7 @@ export default function AddUser (props){
         const { users=[] } = values
         const newUser = {
           username: e.target['username'].value,
-         email: e.target['username'].value
+         email: e.target['email'].value
         }
         fetch(`${config.API_ENDPOINT}/users`, {
           method: 'POST',
@@ -26,7 +26,8 @@ export default function AddUser (props){
           })
           .then(user => {
              values.addUser(user)
-            this.props.history.push(`/users/${user.id}`)
+             console.log(props)
+            props.history.push(`/users/${user.id}`)
             })
           .catch(error => {
             console.error({ error })
@@ -36,7 +37,6 @@ export default function AddUser (props){
     return(
       <div>
          <h2>
-                    
                   <Link to='/'>Encouragement Bank</Link>
       </h2>
       <form onSubmit={handleAdd}>
