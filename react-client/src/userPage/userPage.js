@@ -11,7 +11,7 @@ export default class UserPage extends Component{
         }
       }
     static contextType = context
-    handleDeleteNote = noteId => {
+    handleDeleteNote = () => {
         this.props.history.push(`/users/${this.props.match.params.user_id}`)
       }
     handleSubmit = e => {
@@ -56,11 +56,11 @@ export default class UserPage extends Component{
         console.log(notes, users)
         const  user_id  = this.props.match.params.user_id
         const user = users.find(user=>user.id === user_id)
-        console.log(user)
+        console.log(user,user_id)
         const userNotes = notes.filter(note=>note.user_id === user.serialid)
         console.log(userNotes)
         const renderContent = userNotes.map((note,i)=><Note key={i} content={note.content}
-        id={note.id} user_id={note.user_id} onDeleteNote={this.handleDeleteNote}/> )
+        id={note.id} user_id={user_id} onDeleteNote={this.handleDeleteNote}/> )
         return(
             <section className='userPage'>
                 <h2>

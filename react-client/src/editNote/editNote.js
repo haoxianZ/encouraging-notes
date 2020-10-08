@@ -3,14 +3,17 @@ import context from '../context';
 import config from '../config';
 
 export default function EditNote(props){
-    const values = useContext(context);
-    const note_id=props.match.params.note_id
+    const values = useContext(context)
+    const{notes=[]}= values
+    const note_id=parseFloat(props.match.params.note_id) 
     //an link to go back to user profile 
     const handleEdit = e => {
         e.preventDefault()
+        const note = notes.find(note=>note.id === note_id)
+        console.log(note)
         const updateNote = {
           content: e.target['updateNote'].value,
-          user_id: props.match.params.user_id
+          user_id: note.user_id
         }
         console.log(updateNote.user_id)
         fetch(`${config.API_ENDPOINT}/notes/${note_id}`, {
@@ -30,7 +33,7 @@ export default function EditNote(props){
           .then(note => {
               console.log(note)
             values.updateNote(note)
-            props.history.push(`/users/${note.user_id}`)
+            props.history.push(`/users/${props.match.params.user_id}`)
             })
           .catch(error => {
             console.error({ error })
