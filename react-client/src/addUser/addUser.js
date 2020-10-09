@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import {Link} from 'react-router-dom'
 import context from '../context'
-import config from '../config'
+import config from '../config';
+import './addUser.css'
 export default function AddUser (props){
     // sign up or login with email and username
     const values = useContext(context);
@@ -36,10 +37,10 @@ export default function AddUser (props){
       }
     return(
       <div>
-         <h2>
-                  <Link to='/'>Encouragement Bank</Link>
-      </h2>
-      <form onSubmit={handleAdd}>
+       
+      <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
+      
+      <form onSubmit={handleAdd} className='login'>
       <label htmlFor='username'>Username:</label>
       <input type='text' id='username' name='username' required></input>
       <label htmlFor='email'>Email:</label>

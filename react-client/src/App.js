@@ -7,12 +7,14 @@ import config from './config';
 import EditNote from './editNote/editNote';
 import update from 'react-addons-update';
 import AddUser from './addUser/addUser';
+import {Helmet} from "react-helmet";
+
 class App extends Component{
   state = {
     notes:[],
     users:[],
     show: false,
-    error:false
+    error:false,
   }
   componentDidMount() {
     Promise.all([
@@ -94,6 +96,9 @@ handleUpdateNote = (updateNote)=>{
   return(
     <Context.Provider value={contextValue}>
     <div className="App">
+      <Helmet>
+          <title>Encouragements</title>
+      </Helmet>
       <Switch>
       <Route
         path='/add-user'

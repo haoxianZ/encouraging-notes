@@ -40,32 +40,21 @@ export default class HomePage extends Component{
                 <main>
                   <form onSubmit={this.handleSubmit} className='login'>
                     <div className='userbox'>
-                      <label htmlFor='username'>
-                        username:
-                    </label>
-                    <input type='test' id='username' name='username' required>
+                    <input placeholder='Username' type='test' id='username' name='username' required>
                     </input>
-                    </div>
-                    
-                    <div className='userbox'>
-                        <label htmlFor='email'>
-                        Email:
-                    </label>
-                    <input type='email' id='email' name='email' required></input>
+                    <input placeholder='Email' type='email' id='email' name='email' required></input>
                     </div>
                     <div className='buttons'>
                       <button type='submit'>
                         Log in
                     </button>
-                    <Link to='/add-user'>
+                    <Link to='/add-user' style={{ textDecoration: 'none' }}>
                         <button>
                             Sign up
                         </button>
                     </Link>
                     </div>
-                    
-                    
-                </form>
+                  </form>
                 </main>
                 <footer>
                   { this.context.error &&

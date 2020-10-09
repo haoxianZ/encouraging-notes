@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import context from '../context'
 import config from '../config'
-
+import { FcLike } from "react-icons/fc";
 
 export default class Note extends React.Component {
   static defaultProps ={
@@ -37,11 +37,13 @@ export default class Note extends React.Component {
   
 //to do: add an confirm alert when they are about to delete
   render() {
-    const { content, id, user_id } = this.props
+    const { content, id, user_id, numLike } = this.props
     return (
       <div className='Note'>
         <p className='content'>
             {content}
+            <br />
+            {numLike} people <FcLike /> this note!
         </p>
         <button
           className='Note__delete'
@@ -52,7 +54,8 @@ export default class Note extends React.Component {
         </button>
        <button className='Note_edit'
        >
-         <Link to={`/users/${user_id}/notes/${id}/edit`}>Edit</Link>
+         <Link to={`/users/${user_id}/notes/${id}/edit`}
+         style={{ textDecoration: 'none' }}>Edit</Link>
        </button>
       </div>
     )

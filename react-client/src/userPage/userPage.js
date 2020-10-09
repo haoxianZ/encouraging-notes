@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import context from '../context';
 import config from '../config';
-import GetNote from '../getNote';
+import GetNote from '../getNote/getNote';
 import Note from '../userNote/userNote';
 import { Link } from 'react-router-dom';
+const Filter = require('bad-words'),
+filter = new Filter();
 export default class UserPage extends Component{
     static defaultProps = {
         match: {
@@ -20,8 +22,9 @@ export default class UserPage extends Component{
         const  user_id  = this.props.match.params.user_id
         const user = users.find(user=>user.id === user_id)
         const newNote = {
-          content: e.target['newNote'].value,
-          user_id: user.serialid
+          content: filter.clean(e.target['newNote'].value),
+          user_id: user.serialid,
+          liked: 0
         }
         console.log(newNote.user_id)
         fetch(`${config.API_ENDPOINT}/notes`, {
@@ -60,7 +63,7 @@ export default class UserPage extends Component{
         const userNotes = notes.filter(note=>note.user_id === user.serialid)
         console.log(userNotes)
         const renderContent = userNotes.map((note,i)=><Note key={i} content={note.content}
-        id={note.id} user_id={user_id} onDeleteNote={this.handleDeleteNote}/> )
+        id={note.id} user_id={user_id} numLike={note.liked} onDeleteNote={this.handleDeleteNote}/> )
         return(
             <section className='userPage'>
                 <h2>
