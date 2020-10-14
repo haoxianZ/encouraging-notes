@@ -7,7 +7,10 @@ import config from './config';
 import EditNote from './editNote/editNote';
 import update from 'react-addons-update';
 import AddUser from './addUser/addUser';
+import NotFound from './404Page/404Page' ;
+import Contact from './contact/contact';
 import {Helmet} from "react-helmet";
+
 
 class App extends Component{
   state = {
@@ -63,7 +66,7 @@ class App extends Component{
   }
 handleToggle = (showState)=>{
   this.setState({
-    show: !showState
+    show: true
   })
 }
 toggleError = (message)=>{
@@ -109,9 +112,14 @@ handleUpdateNote = (updateNote)=>{
         component={UserPage}
       />
     <Route
-        path='/'
+        exact path='/'
         component={HomePage}
       />
+      <Route
+        exact path='/contact'
+        component={Contact}
+      />
+      <Route component={NotFound} />
       </Switch>
     <Route path='/users/:user_id/notes/:note_id/edit'
     component={EditNote}/>

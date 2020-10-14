@@ -36,7 +36,12 @@ export default class HomePage extends Component{
             <div className='mainPage'>
                 <header>
                     Encouragement Bank
+                    <nav>
+                  <Link to='/contact' style={{ color: 'aliceblue' }}>contact</Link>
+                </nav>
                 </header>
+                
+                  
                 <main>
                   <form onSubmit={this.handleSubmit} className='login'>
                     <div className='userbox'>

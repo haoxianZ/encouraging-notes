@@ -4,8 +4,11 @@ import config from '../config';
 import GetNote from '../getNote/getNote';
 import Note from '../userNote/userNote';
 import { Link } from 'react-router-dom';
+import './userPage.css';
 const Filter = require('bad-words'),
 filter = new Filter();
+filter.removeWords('hells', 'hell', 'God','gods');
+
 export default class UserPage extends Component{
     static defaultProps = {
         match: {
@@ -18,6 +21,7 @@ export default class UserPage extends Component{
       }
     handleSubmit = e => {
         e.preventDefault()
+        
         const { users=[] } = this.context
         const  user_id  = this.props.match.params.user_id
         const user = users.find(user=>user.id === user_id)
@@ -46,7 +50,7 @@ export default class UserPage extends Component{
           .catch(error => {
             console.error({ error })
           })
-          
+          document.getElementById('newNote').value='';
       }
       showNewNote = ()=>{
         const showState = this.context.show
@@ -66,20 +70,21 @@ export default class UserPage extends Component{
         id={note.id} user_id={user_id} numLike={note.liked} onDeleteNote={this.handleDeleteNote}/> )
         return(
             <section className='userPage'>
-                <h2>
-                    
-                  <Link to='/'>Encouragement Bank</Link>
-                </h2>
+                
+                  <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
+                {//make nav float left
+                }
                 <nav>
                     <h3>Notes that I owned</h3>
                     {renderContent}
                 </nav>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='newNote'>Deposit an Encouragement</label>
-                    <input type='text' id='newNote' name='newNote' required></input>
-                    <button type='submit' onClick={this.showNewNote}>Exchange a Note</button>
+                    <label htmlFor='newNote'>Deposit an Encouragement:  </label>
+                    <textarea type='textarea' id='newNote' name='newNote' required></textarea>
+                    
+                    <button type='submit' onClick={this.showNewNote} className='submitBtn'>Exchange Note</button>
                 </form>
-                {this.context.show ? <GetNote user_id={user_id}/>: null}
+                {this.context.show ? <GetNote user_id={user.serialid}/>: null}
                 
             </section>
         )

@@ -1,0 +1,17 @@
+p{
+    font-weight: bold;
+    text-shadow: black;
+    text-align: center;
+    margin: auto;
+    width: 70%;
+}
+button{
+    margin: auto;
+}
+.disabled
+{
+    pointer-events: none;
+}
+.content{
+    display: flex;
+}

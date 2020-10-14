@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import context from '../context'
 import config from '../config'
 import { FcLike } from "react-icons/fc";
-
+import './userNote.css';
 export default class Note extends React.Component {
   static defaultProps ={
     onDeleteNote: () => {},
@@ -43,8 +43,9 @@ export default class Note extends React.Component {
         <p className='content'>
             {content}
             <br />
-            {numLike} people <FcLike /> this note!
-        </p>
+           
+        </p> 
+        <p>{numLike} people <FcLike /> this note!</p>
         <button
           className='Note__delete'
           type='button'
@@ -52,11 +53,11 @@ export default class Note extends React.Component {
         >
           Remove
         </button>
-       <button className='Note_edit'
-       >
-         <Link to={`/users/${user_id}/notes/${id}/edit`}
-         style={{ textDecoration: 'none' }}>Edit</Link>
-       </button>
+      
+         <button className='Note_edit'
+       ><Link to={`/users/${user_id}/notes/${id}/edit`}
+         style={{ textDecoration: 'none' }} className='button'> Edit</Link></button>
+       
       </div>
     )
   }
