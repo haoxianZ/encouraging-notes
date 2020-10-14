@@ -62,7 +62,6 @@ export default function GetNote (props){
       }
       
         return(
-            //fliter note from context for user-id, randomly select one 
             <div className='note'>
               <div className='content'>
                   <nav>Note {selectNote.id}</nav>

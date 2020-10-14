@@ -72,8 +72,7 @@ export default class UserPage extends Component{
             <section className='userPage'>
                 
                   <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
-                {//make nav float left
-                }
+                
                 <nav>
                     <h3>Notes that I owned</h3>
                     {renderContent}
