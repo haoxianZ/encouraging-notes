@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react'
+import React, { useContext } from 'react'
 import context from '../context';
 import config from '../config';
 
@@ -10,12 +10,10 @@ export default function EditNote(props){
     const handleEdit = e => {
         e.preventDefault()
         const note = notes.find(note=>note.id === note_id)
-        console.log(note)
         const updateNote = {
           content: e.target['updateNote'].value,
           user_id: note.user_id
         }
-        console.log(updateNote.user_id)
         fetch(`${config.API_ENDPOINT}/notes/${note_id}`, {
           method: 'PATCH',
           headers: {
@@ -27,11 +25,9 @@ export default function EditNote(props){
             if (!res.ok){
                 return res.json().then(e => Promise.reject(e))
             }
-            console.log(res)
             return res.json()
           })
           .then(note => {
-              console.log(note)
             values.updateNote(note)
             props.history.push(`/users/${props.match.params.user_id}`)
             })
@@ -40,9 +36,8 @@ export default function EditNote(props){
           })
           alert("Updated")
           
-      } 
-      console.log(values.notes)
-      const currentNote=values.notes.find(note=>note.id== note_id)
+      }
+      const currentNote=values.notes.find(note=>note.id=== note_id)
     return(
         <form onSubmit={handleEdit}>
         <label htmlFor='updateNote'>Change "{currentNote.content}" to:</label>

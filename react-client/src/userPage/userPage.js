@@ -30,7 +30,6 @@ export default class UserPage extends Component{
           user_id: user.serialid,
           liked: 0
         }
-        console.log(newNote.user_id)
         fetch(`${config.API_ENDPOINT}/notes`, {
           method: 'POST',
           headers: {
@@ -52,20 +51,15 @@ export default class UserPage extends Component{
           })
           document.getElementById('newNote').value='';
            const showState = this.context.show
-        console.log(showState)
         this.context.handleToggle(showState)
-        console.log(this.context.show)
       }
       
       
     render(){
         const { notes=[], users=[] } = this.context
-        console.log(notes, users)
         const  user_id  = this.props.match.params.user_id
         const user = users.find(user=>user.id === user_id)
-        console.log(user,user_id)
         const userNotes = notes.filter(note=>note.user_id === user.serialid)
-        console.log(userNotes)
         const renderContent = userNotes.map((note,i)=><Note key={i} content={note.content}
         id={note.id} user_id={user_id} numLike={note.liked} onDeleteNote={this.handleDeleteNote}/> )
         return(

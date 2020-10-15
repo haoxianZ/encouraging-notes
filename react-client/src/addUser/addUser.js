@@ -8,7 +8,6 @@ export default function AddUser (props){
     const values = useContext(context);
     const handleAdd = e => {
         e.preventDefault()
-        const { users=[] } = values
         const newUser = {
           username: e.target['username'].value,
          email: e.target['email'].value
@@ -27,7 +26,6 @@ export default function AddUser (props){
           })
           .then(user => {
              values.addUser(user)
-             console.log(props)
             props.history.push(`/users/${user.id}`)
             })
           .catch(error => {
