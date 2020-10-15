@@ -9,9 +9,9 @@ During COVID time, many people had talked about their need to be encouraged. I a
 ## Screenshots
 Examples:
 
-![Example](/ScreenshotHomepage.png)
+![Example](./ScreenshotHomepage.png)
 
-![Example](/ScreenshotUserpage.png)
+![Example](./ScreenshotUserpage.png)
 
 
 ## Built With
