@@ -51,13 +51,13 @@ export default class UserPage extends Component{
             console.error({ error })
           })
           document.getElementById('newNote').value='';
-      }
-      showNewNote = ()=>{
-        const showState = this.context.show
+           const showState = this.context.show
         console.log(showState)
         this.context.handleToggle(showState)
         console.log(this.context.show)
       }
+      
+      
     render(){
         const { notes=[], users=[] } = this.context
         console.log(notes, users)
@@ -81,9 +81,9 @@ export default class UserPage extends Component{
                     <label htmlFor='newNote'>Deposit an Encouragement:  </label>
                     <textarea type='textarea' id='newNote' name='newNote' required></textarea>
                     
-                    <button type='submit' onClick={this.showNewNote} className='submitBtn'>Exchange Note</button>
+                    <button type='submit' className='submitBtn'>Exchange Note</button>
                 </form>
-                {this.context.show ? <GetNote user_id={user.serialid}/>: null}
+                {this.context.show ? <GetNote user_id={user.serialid} />: null}
                 
             </section>
         )

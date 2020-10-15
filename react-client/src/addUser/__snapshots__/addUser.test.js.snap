@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sign up form component renders the complete form 1`] = `
+<div>
+  <Link
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+    to="/"
+  >
+    <h2>
+      Encouragement Bank
+    </h2>
+  </Link>
+  <form
+    className="login"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="username"
+    >
+      Username:
+    </label>
+    <input
+      id="username"
+      name="username"
+      required={true}
+      type="text"
+    />
+    <label
+      htmlFor="email"
+    >
+      Email:
+    </label>
+    <input
+      id="email"
+      name="email"
+      required={true}
+      type="email"
+    />
+    <button
+      type="submit"
+    >
+      Sign up
+    </button>
+  </form>
+</div>
+`;

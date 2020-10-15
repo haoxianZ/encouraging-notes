@@ -1,4 +1,12 @@
 .Note{
     display: flex;
+    flex-direction: column;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .Note{
+        flex-direction: row;
+    }
 }
 

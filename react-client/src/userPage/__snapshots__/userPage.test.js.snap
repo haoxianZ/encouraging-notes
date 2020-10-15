@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddNote component renders the complete form 1`] = `
+<section
+  className="userPage"
+>
+  <Link
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+    to="/"
+  >
+    <h2>
+      Encouragement Bank
+    </h2>
+  </Link>
+  <nav>
+    <h3>
+      Notes that I owned
+    </h3>
+  </nav>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="newNote"
+    >
+      Deposit an Encouragement:  
+    </label>
+    <textarea
+      id="newNote"
+      name="newNote"
+      required={true}
+      type="textarea"
+    />
+    <button
+      className="submitBtn"
+      type="submit"
+    >
+      Exchange Note
+    </button>
+  </form>
+</section>
+`;

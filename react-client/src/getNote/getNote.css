@@ -1,17 +1,31 @@
 p{
     font-weight: bold;
     text-shadow: black;
-    text-align: center;
     margin: auto;
     width: 70%;
+    font-size: x-large;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
 }
 button{
     margin: auto;
 }
-.disabled
-{
-    pointer-events: none;
+button.disabled{
+    display: none;
+    }
+
+nav{
+    color: rgb(226, 243, 247);
 }
-.content{
-    display: flex;
+.heart{
+    font-size: x-large;
+}
+@media only screen and (min-width: 600px) {
+    .heart{
+        font-size: xx-large;
+    }
+    .content{
+        font-size: xx-large;
+    }
 }

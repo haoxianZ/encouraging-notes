@@ -6,6 +6,9 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
+main{
+  margin: auto;
+}
 header{
   text-align: center;
   font-style: oblique;
@@ -55,11 +58,12 @@ button:active {
   .login{
     margin: auto;
     text-align: center;
-    width: 200px;
+    
     padding: 15%;
   }
   input{
     font-size: x-large;
+    width: 700px;
   }
   button{
     font-size: x-large;
@@ -68,4 +72,8 @@ button:active {
   header{
     font-size: 70px;
   }
+  nav{
+    font-size: 40px;
+  }
+ 
 }

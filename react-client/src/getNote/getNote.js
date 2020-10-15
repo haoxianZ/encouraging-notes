@@ -24,7 +24,7 @@ export default function GetNote (props){
     function handleLikes (e){
         e.preventDefault()
         setDisable(true)
-        
+        alert("You have liked this Note!")
         const updateNote = {
             content: selectNote.content,
             user_id: selectNote.user_id,
@@ -63,17 +63,17 @@ export default function GetNote (props){
       
         return(
             <div className='note'>
-              <div className='content'>
-                  <nav>Note {selectNote.id}</nav>
-                                  <p>
+              <div >
+                  <nav>Note {selectNote.id}: </nav>
+                                  <p className='content'> 
                                   {selectNote.content}
                                   
                                   </p>
               </div>
                 
-                <button disabled={disable} onClick={handleLikes} ><FcLike/></button>
+                <button disabled={disable} onClick={handleLikes} ><FcLike className='heart'/></button>
                 
-                <Link to='/contact' ><button>Got issue about the Note? Report it with its id</button></Link>
+                <Link to='/contact' ><button>Got issue about the Note? Report it with the Note Number</button></Link>
 
                   
             </div>

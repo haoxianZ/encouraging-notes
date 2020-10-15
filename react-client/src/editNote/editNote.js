@@ -38,6 +38,7 @@ export default function EditNote(props){
           .catch(error => {
             console.error({ error })
           })
+          alert("Updated")
           
       } 
       console.log(values.notes)

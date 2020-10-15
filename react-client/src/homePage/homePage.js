@@ -45,19 +45,19 @@ export default class HomePage extends Component{
                 <main>
                   <form onSubmit={this.handleSubmit} className='login'>
                     <div className='userbox'>
-                    <input placeholder='Username' type='test' id='username' name='username' required>
-                    </input>
-                    <input placeholder='Email' type='email' id='email' name='email' required></input>
+                      <input placeholder='Username' type='test' id='username' name='username' required>
+                      </input>
+                      <input placeholder='Email' type='email' id='email' name='email' required></input>
                     </div>
                     <div className='buttons'>
                       <button type='submit'>
                         Log in
-                    </button>
-                    <Link to='/add-user' style={{ textDecoration: 'none' }}>
+                      </button>
+                      <Link to='/add-user' style={{ textDecoration: 'none' }}>
                         <button>
                             Sign up
                         </button>
-                    </Link>
+                      </Link>
                     </div>
                   </form>
                 </main>

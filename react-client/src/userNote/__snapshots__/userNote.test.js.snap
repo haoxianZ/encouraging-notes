@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note component renders a .Note by default 1`] = `
+<div
+  className="Note"
+>
+  <p
+    className="content"
+  >
+    <br />
+  </p>
+  <p>
+     people 
+    <FcLike />
+     this note!
+  </p>
+  <button
+    className="Note__delete"
+    onClick={[Function]}
+    type="button"
+  >
+    Remove
+  </button>
+  <button
+    className="Note_edit"
+  >
+    <Link
+      className="button"
+      style={
+        Object {
+          "textDecoration": "none",
+        }
+      }
+      to="/users/undefined/notes/undefined/edit"
+    >
+       Edit
+    </Link>
+  </button>
+</div>
+`;
