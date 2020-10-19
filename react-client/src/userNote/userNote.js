@@ -45,7 +45,7 @@ export default class Note extends React.Component {
             <br />
            
         </p> 
-        <p>{numLike} people <FcLike /> this note!</p>
+        <p>This Note is <FcLike /> {numLike} times!</p>
         <button
           className='Note__delete'
           type='button'

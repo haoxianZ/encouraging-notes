@@ -9,6 +9,7 @@ import update from 'react-addons-update';
 import AddUser from './addUser/addUser';
 import NotFound from './404Page/404Page' ;
 import Contact from './contact/contact';
+import About from './About/about';
 import {Helmet} from "react-helmet";
 
 
@@ -118,6 +119,10 @@ handleUpdateNote = (updateNote)=>{
       <Route
         exact path='/contact'
         component={Contact}
+      />
+      <Route
+        exact path='/about'
+        component={About}
       />
       <Route component={NotFound} />
       </Switch>

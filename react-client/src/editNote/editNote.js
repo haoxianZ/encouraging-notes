@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import context from '../context';
 import config from '../config';
+import { Link } from 'react-router-dom';
 
 export default function EditNote(props){
     const values = useContext(context)
@@ -38,11 +39,13 @@ export default function EditNote(props){
           
       }
       const currentNote=values.notes.find(note=>note.id=== note_id)
+      const url = `/users/${props.match.params.user_id}`
     return(
         <form onSubmit={handleEdit}>
         <label htmlFor='updateNote'>Change "{currentNote.content}" to:</label>
         <input type='text' id='updateNote' name='updateNote' required></input>
         <button type='submit'>Update Note</button>
+        <Link to={url} style={{ textDecoration: 'none' }}><button>Cancel</button></Link>
         </form>
     )
 }

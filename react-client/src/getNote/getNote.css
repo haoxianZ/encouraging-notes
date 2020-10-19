@@ -15,8 +15,10 @@ button.disabled{
     display: none;
     }
 
-nav{
+.noteId{
     color: rgb(226, 243, 247);
+    display: flex;
+    padding: 5%;
 }
 .heart{
     font-size: x-large;

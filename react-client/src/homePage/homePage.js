@@ -37,7 +37,8 @@ export default class HomePage extends Component{
                 <header>
                     Encouragement Bank
                     <nav>
-                  <Link to='/contact' style={{ color: 'aliceblue' }}>contact</Link>
+                  <Link to='/contact' style={{ color: 'aliceblue' }} >Contact</Link>
+                  <Link to='/about' style={{ color: 'aliceblue' }} >About</Link>
                 </nav>
                 </header>
                 

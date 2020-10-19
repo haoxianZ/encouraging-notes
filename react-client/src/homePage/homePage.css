@@ -17,7 +17,11 @@ header{
 }
 nav{
   font-size: large;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+
 .contact{
   top:100%;
   color: #ebd4d4;
@@ -25,9 +29,9 @@ nav{
   font-size: large;
   }
 .login{
-    width: 50%;
+    width: 100%;
     margin-top: 50%;
-    margin-left: 30%;
+    
 }
 .userbox{
   text-align: center;
@@ -69,6 +73,10 @@ button:active {
     font-size: x-large;
     
   }
+  .login{
+    width: 70%;
+    margin: auto;
+}
   header{
     font-size: 70px;
   }

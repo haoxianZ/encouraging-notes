@@ -2,12 +2,16 @@ h2{
   text-align: center;
   font-style: oblique;
   color:#e6ecff ;
-  font-size: 50px;
+  font-size: xx-large !important;
 }
 h3{
     text-align: center;
     font-style: oblique;
     color:#b4c3f3 ;
+}
+nav{
+  display: flex;
+  flex-direction: column;
 }
 form{
   text-align: center;

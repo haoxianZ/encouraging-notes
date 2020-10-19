@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import context from '../context';
 import { FcLike } from "react-icons/fc";
 import config from '../config';
 import './getNote.css'
 import { Link } from 'react-router-dom';
+import Tooltip from "@material-ui/core/Tooltip";
+
 export default function GetNote (props){
-    const [disable, setDisable] = useState(false);
     const values = useContext(context);
     const notes = values.notes.filter(note=>note.user_id !== props.user_id)
     
@@ -14,7 +15,6 @@ export default function GetNote (props){
     const likesCount = selectNote.liked +1;
     function handleLikes (e){
         e.preventDefault()
-        setDisable(true)
         alert("You have liked this Note!")
         const updateNote = {
             content: selectNote.content,
@@ -36,16 +36,19 @@ export default function GetNote (props){
         return(
             <div className='note'>
               <div >
-                  <nav>Note {selectNote.id}: </nav>
-                                  <p className='content'> 
-                                  {selectNote.content}
-                                  
-                                  </p>
+                  <nav className='noteId'>Note {selectNote.id}: </nav>
+                  <p className='content'> 
+                    {selectNote.content}
+                  </p>
               </div>
-                
-                <button disabled={disable} onClick={handleLikes} ><FcLike className='heart'/></button>
-                
-                <Link to='/contact' ><button>Got issue about the Note? Report it with the Note Number</button></Link>
+              <Tooltip title='You can Only Like once per Note!' placement="top">
+                <button onClick={handleLikes}>
+                  <FcLike className='heart'/>
+                </button>
+    
+              </Tooltip>
+              
+              <Link to='/contact' ><button>Got issue about the Note? Report it with the Note Number</button></Link>
 
                   
             </div>
