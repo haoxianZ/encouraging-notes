@@ -3,4 +3,5 @@ h3{
 }
 p{
     font-size: large;
+    text-shadow: 2px 2px 3px rgba(3, 7, 66, 0.4);
 }
