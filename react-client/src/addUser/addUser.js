@@ -36,7 +36,7 @@ export default function AddUser (props){
     return(
       <div>
        
-      <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
+      <Link to='/' style={{ textDecoration: 'none' }}><header>Encouragement Bank</header></Link>
       
       <form onSubmit={handleAdd} className='login'>
       <label htmlFor='username'>Username:</label>
@@ -44,6 +44,9 @@ export default function AddUser (props){
       <label htmlFor='email'>Email:</label>
       <input type='email' id='email' name='email' required></input>
       <button type='submit'>Sign up</button>
+      <Link to='/' style={{ textDecoration: 'none' }}>
+      <button>Cancel</button></Link>
+
       </form>
       </div>
      

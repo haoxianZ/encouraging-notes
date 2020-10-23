@@ -68,14 +68,14 @@ export default class UserPage extends Component{
                   <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
                 
                 <nav>
-                    <h3>Notes that I owned</h3>
+                    <h3>Notes that I wrote</h3>
                     {renderContent}
                 </nav>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor='newNote'>Deposit an Encouragement:  </label>
                     <textarea type='textarea' id='newNote' name='newNote' required></textarea>
                     
-                    <button type='submit' className='submitBtn'>Exchange Note</button>
+                    <button type='submit' className='submitBtn'>Exchange a Note</button>
                 </form>
                 {this.context.show ? <GetNote user_id={user.serialid} />: null}
                 

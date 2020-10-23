@@ -15,7 +15,9 @@ export default function Contact(){
       }
     return(
         <div>
-            <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
+            <Link to='/' style={{ textDecoration: 'none' }}>
+                <header>Encouragement Bank</header>
+            </Link>
             <form className='contactForm' onSubmit={sendEmail}>
             <label htmlFor='subject' >Subject: </label>
             <br/>

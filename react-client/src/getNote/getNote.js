@@ -48,7 +48,7 @@ export default function GetNote (props){
     
               </Tooltip>
               
-              <Link to='/contact' ><button>Got issue about the Note? Report it with the Note Number</button></Link>
+              <Link to='/contact' ><button>Got issue with this Note? Report it with the Note Number</button></Link>
 
                   
             </div>
