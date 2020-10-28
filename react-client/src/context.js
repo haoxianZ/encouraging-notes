@@ -5,6 +5,7 @@ export default React.createContext({
   user: [],
   error: null,
   show:false,
+  Login:null,
   addUser: () => {},
   addNote: () => {},
   deleteNote: () => {},
@@ -12,5 +13,6 @@ export default React.createContext({
   updateUser:()=>{},
   validateUser:()=>{},
   handleToggle:()=>{},
-  toggleError:()=>{}
+  toggleError:()=>{},
+  handleLogin:()=>{}
 })

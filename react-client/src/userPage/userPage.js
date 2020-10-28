@@ -60,25 +60,34 @@ export default class UserPage extends Component{
         const  user_id  = this.props.match.params.user_id
         const user = users.find(user=>user.id === user_id)
         const userNotes = notes.filter(note=>note.user_id === user.serialid)
-        const renderContent = userNotes.map((note,i)=><Note key={i} content={note.content}
-        id={note.id} user_id={user_id} numLike={note.liked} onDeleteNote={this.handleDeleteNote}/> )
+        let renderContent;
+        if(this.context.Login === user_id){
+          const content = userNotes.map((note,i)=><Note key={i} content={note.content}
+        id={note.id} user_id={user_id} numLike={note.liked} onDeleteNote={this.handleDeleteNote}/>)
+          renderContent = <div>
+          <nav>
+            <h3>Notes that I wrote</h3>
+            {content}
+        </nav>
+        <form onSubmit={this.handleSubmit}>
+            <label htmlFor='newNote'>Deposit an Encouragement:  </label>
+            <textarea type='textarea' id='newNote' name='newNote' required></textarea>
+            
+            <button type='submit' className='submitBtn'>Exchange a Note</button>
+        </form>
+        {this.context.show ? <GetNote user_id={user.serialid} />: null}
+        </div>
+      }
+        else{
+          renderContent = <h3>You are not Log in yet</h3>
+        }
+
         return(
             <section className='userPage'>
                 
                   <Link to='/' style={{ textDecoration: 'none' }}><h2>Encouragement Bank</h2></Link>
                 
-                <nav>
-                    <h3>Notes that I wrote</h3>
-                    {renderContent}
-                </nav>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='newNote'>Deposit an Encouragement:  </label>
-                    <textarea type='textarea' id='newNote' name='newNote' required></textarea>
-                    
-                    <button type='submit' className='submitBtn'>Exchange a Note</button>
-                </form>
-                {this.context.show ? <GetNote user_id={user.serialid} />: null}
-                
+                  {renderContent}
             </section>
         )
     }

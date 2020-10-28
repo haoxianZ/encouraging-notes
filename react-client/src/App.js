@@ -19,6 +19,7 @@ class App extends Component{
     users:[],
     show: false,
     error:false,
+    Login: null
   }
   componentDidMount() {
     Promise.all([
@@ -83,18 +84,25 @@ handleUpdateNote = (updateNote)=>{
     notes:{[noteIndex]:{$set: updateNote}}
   }))
 }
+handleLogin = (user_id)=>{
+  this.setState({
+    Login: user_id
+  })
+}
   render(){
     const contextValue = {
       notes: this.state.notes,
       users: this.state.users,
       show:this.state.show,
       error:this.state.error,
+      Login:this.state.Login,
       addUser:this.handleAddUser,
       addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote,
       handleToggle:this.handleToggle,
       toggleError: this.toggleError,
-      updateNote:this.handleUpdateNote
+      updateNote:this.handleUpdateNote,
+      handleLogin:this.handleLogin
     }
     
   return(

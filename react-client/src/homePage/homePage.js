@@ -24,6 +24,7 @@ export default class HomePage extends Component{
             return res.json()
           })
           .then(user => {
+            this.context.handleLogin(user.id)
             this.props.history.push(`/users/${user.id}`)
           })
           .catch(error => {
